@@ -1,7 +1,34 @@
-﻿#Programa criado por Allyson :-)
+﻿#Programa criado por AllysonD2v :-)
+
+#function SearchInstalledBrowsers{
+#	$_firefox = Test-Path -Path "C:\Program Files\Mozilla Firefox"
+#	$_vivaldi = Test-Path -Path "C:\Program Files\Vivaldi"
+#	$_chrome = Test-Path -Path "C:\Program Files\Google"
+	
+#	if ($ask -eq "1" -and $_firefox -eq "True"){
+#		write-output("`nFirefox is installed ")
+#	} else {
+#		write-output("`nVivaldi is not installed in your System")
+#		break
+#	}
+	
+#	if ($ask -eq "2" -and $_vivaldi -eq "True"){
+#		write-output("Vivaldi is installed ")
+#	} else {
+#		write-output("Vivaldi is not installed")
+#		break
+#	}
+	
+#	if ($ask -eq "3" -and $_vivaldi -eq "True"){
+#		write-output("Google Chrome is installed ")
+#	} else {
+#		write-output("Google Chrome is not installed")
+#		break
+#	}
+#}
 
 write-output(" ************************************************")
-write-output (" *Hey $env:username. Welcome to my program!   **")               
+write-output (" *Hey $env:username. Welcome to my program!      **")               
 write-output(" ************************************************")
 
 write-output ("`nPlease, choose one option")
@@ -17,8 +44,9 @@ write-output ("(5).............Other")
 
 $ask = read-host -prompt ("`nNumber")
 
-cls
+#SearchInstalledBrowsers
 
+clear 
 
 #Here are the if statements that assign to the variable $ask one element from the array ($browsers) above
 if ($ask -eq 1){
@@ -43,9 +71,6 @@ if ($ask -eq 5){
     $ask = "$other.exe"
       
 } 
-
-
-
 
 write-output("Today is: ")
 write-output(get-date)
@@ -77,66 +102,28 @@ cls
         start $ask www.google.com
 
         
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
+		LoadingSimulator
 
     }
     if($search -eq 2){
         start $ask www.duckgo.com
-
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
-
     }
     if($search -eq 3){
-        start $ask www.bing.com
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
-
+        start $ask www.bing.com	
     }
+	
     if($search -gt 3){
     cls
-        write-output("You typed an incorrect number!")
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading failed!")
+        write-output("You typed an incorrect number!")    
     }
 } 
 
 if($ask2 -eq 2){
     start $ask www.facebook.com
-
-    
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
 }
 
 if ($ask2 -eq 3){
     start $ask www.youtube.com
-
-    
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
 }
 
 if ($ask2 -eq 4){
@@ -150,79 +137,30 @@ if ($ask2 -eq 4){
 
     if($wiki -eq 1){
         start $ask www.pt.wikipedia.org
-
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
-
     }
+	
     if($wiki -eq 2){
         start $ask en.wikipedia.org
-
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
-
     }
+	
     if($wiki -eq 3){
         start $ask es.wikipedia.org
-
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
-
     }
     if($wiki -eq 4){
         start $ask it.wikipedia.org
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
-
     }
+	
     if($wiki -gt 4){
         write-output("Pay attention sir, you typed a wrong number!")
-
-        
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading failed!")
     }
 }
 
 if($ask2 -eq 5){
     start $ask https://web.telegram.org/
-
-    
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
 }
 
 if($ask2 -eq 6){
     start $ask www.libgen.is
-
-    
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
 } 
 
 if($ask2 -eq 7){
@@ -230,12 +168,6 @@ if($ask2 -eq 7){
     $cmd = read-host -prompt ("`nName")
 
     start $ask "https://docs.microsoft.com/en-us/search/?search=$cmd&scope=PowerShell"
-    
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
 }
 
 if($ask2 -eq 8){
@@ -244,14 +176,6 @@ if($ask2 -eq 8){
     $link = read-host("`nLink")
 
     start $ask $link
-
-    while($load -ne 4){
-        $load++
-        write-output("`n Loading...")      
-        
-    } write-output("`n Loading completed!")
-
-
 }
 
 
