@@ -1,50 +1,54 @@
 ﻿#Programa criado por AllysonD2v :-)
 
-#function SearchInstalledBrowsers{
+#function SearchInstalledBrowsers{ 
+	
 #	$_firefox = Test-Path -Path "C:\Program Files\Mozilla Firefox"
-#	$_vivaldi = Test-Path -Path "C:\Program Files\Vivaldi"
 #	$_chrome = Test-Path -Path "C:\Program Files\Google"
+#	$_find_other_browser = Test-Path "C:\Program Files\$ask"
 	
-#	if ($ask -eq "1" -and $_firefox -eq "True"){
-#		write-output("`nFirefox is installed ")
-#	} else {
-#		write-output("`nVivaldi is not installed in your System")
-#		break
+#	if ($ask -eq "1"){
+#		if ($_firefox -not $true){
+#			write-warning("Mozilla Firefox[Not installed].")
+#			break
+#		} else {
+#			continue 
+#		}
 #	}
-	
-#	if ($ask -eq "2" -and $_vivaldi -eq "True"){
-#		write-output("Vivaldi is installed ")
-#	} else {
-#		write-output("Vivaldi is not installed")
-#		break
+#	elseif ($ask -eq "2"){ 
+#		if ($_chrome -not $true){
+#			write-warning("Google Chrome[Not installed].")
+#			break
+#		} else {
+#			continue 
+#		}
 #	}
-	
-#	if ($ask -eq "3" -and $_vivaldi -eq "True"){
-#		write-output("Google Chrome is installed ")
-#	} else {
-#		write-output("Google Chrome is not installed")
-#		break
-#	}
+#	elseif($ask -eq "4"){
+#		if ($_find_other_browser -not $true){
+#			write-warning("$ask [Not installed].")
+#			break
+#		} else {
+#			continue 
+#		}
+#	} 
 #}
 
 write-output(" ************************************************")
 write-output (" *Hey $env:username. Welcome to my program!      **")               
 write-output(" ************************************************")
 
-write-output ("`nPlease, choose one option")
+write-output ("`nPlease, choose one option: ")
 
-$browsers = "firefox.exe","vivaldi.exe","chrome.exe","iexplore.exe","other"
+$browsers = "firefox.exe","chrome.exe","iexplore.exe","other"
 $load = 1
 
 write-output ("`n(1).............Firefox")
-write-output ("(2).............Vivaldi")
-write-output ("(3).............Chrome")
-write-output ("(4).............Internet Explorer")
-write-output ("(5).............Other")
+write-output ("(2).............Chrome")
+write-output ("(3).............Internet Explorer")
+write-output ("(4).............Other")
 
 $ask = read-host -prompt ("`nNumber")
 
-#SearchInstalledBrowsers
+SearchInstalledBrowsers -UserInput $ask
 
 clear 
 
@@ -60,13 +64,9 @@ if ($ask -eq 2){
 if($ask -eq 3){
     $ask = $browsers[2]
 }
-if($ask -eq 4){
-    $ask = $browsers[3]
-    
-}
 
 #Here is the exception case for the user that doesn't find his browser on the list
-if ($ask -eq 5){ 
+if ($ask -eq 4){ 
     $other = read-host("Type the process name of your browser here")
     $ask = "$other.exe"
       
